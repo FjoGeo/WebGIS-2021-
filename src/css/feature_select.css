@@ -1,0 +1,25 @@
+
+  #f__select__button {
+    font-size: 1rem;
+    color: #fff;
+    background: rgb(23, 105, 71);
+    padding: 10px 10px;
+    border: none;
+    border-radius: 2px;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 15px;
+}
+
+
+#f__select__stop__button {
+    font-size: 1rem;
+    color: #fff;
+    background: rgb(116, 43, 43);
+    padding: 10px 10px;
+    border: none;
+    border-radius: 2px;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 15px;
+}

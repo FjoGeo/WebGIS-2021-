@@ -12,6 +12,7 @@ import '../css/geolocation.css';
 import '../css/info_table.css';
 import '../css/export.css';
 import '../css/measure.css';
+import '../css/feature_select.css';
 
 import './menu';
 import './info';
@@ -24,6 +25,7 @@ import './turf_along';
 import './export_map';
 import './popup_extra';
 import './measure';
+import './select_features';
 
 
 import Map from 'ol/Map';

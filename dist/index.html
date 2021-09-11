@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Trip Planner</title>
         <link rel="icon" type="image/x-icon" href="../data/icon/favicon-32x32.png">
-    <script defer src="main.b2041dc48e757b7a5b4a.js"></script></head>
+    <script defer src="main.44f428ddbb3513051633.js"></script></head>
     <body>
 
         <!-- Navbar ============================================================================================================================== -->
@@ -94,6 +94,7 @@
                 <a href="javascript:void(0)" onclick="info('routing_new')" title="Routing"><i class="fas fa-car"></i></a>
                 <a href="javascript:void(0)" onclick="info('export_map')" title="Export Map"><i class="fas fa-file-export"></i></a>
                 <a href="javascript:void(0)" onclick="info('measurement')" title="Measure"><i class="fas fa-ruler-horizontal"></i></a>
+                <a href="javascript:void(0)" onclick="info('select_feature')" title="Select Feature"><i class="far fa-hand-pointer"></i></a>
             </div>
 
             <div id="baselayer" class="infobar"></div>
@@ -316,7 +317,7 @@
 
        <!-- ======================================================= Turf Along  ==============================================================  -->
 
-      <h1>Tagesetappen</h1>
+      <!-- <h1>Tagesetappen</h1> -->
       <button id="along__button">Tagesetappen anzeigen</button>      
         </div>
 
@@ -351,12 +352,12 @@
        </div>
 
 
-        <!-- =======================================================  Map Download  ==============================================================  -->
+        <!-- =======================================================  Messen  ==============================================================  -->
         <div id="measurement" class="infobar">
-          <h1>Messen</h1>
+          <h1>Entfernung messen</h1>
 
           <form class="form-inline">
-            <label for="type_measure">Measurement type &nbsp;</label>
+            <label for="type_measure">Methode auswählen &nbsp;</label>
             <select id="type_measure">
               <option value="length">Länge </option>
               <option value="area">Fläche </option>
@@ -367,6 +368,28 @@
           <button id="measure__stop__button">Stopp</button>   
 
         </div>
+        <!-- =======================================================  Select Feature  ==============================================================  -->
+        <div id="select_feature" class="infobar">
+          <h1>Feature auswählen</h1>
+
+          <form class="form-inline">
+            <label for="type_feature_select">Methode &nbsp;</label>
+            <select id="type_feature_select" class="form-control">
+              <option value="click" selected>Click</option>
+              <option value="singleclick">Single-click</option>
+              <option value="pointermove">Hover</option>
+              <option value="altclick">Alt+Click</option>
+              <option value="none">None</option>
+            </select>
+            <br>
+            <br>
+            <span id="status">&nbsp;0 ausgewählte Elemente</span>
+          </form>
+
+          <button id="f__select__button">Aktivieren </button>   
+          <button id="f__select__stop__button">Deaktivieren</button>   
+        </div>
+
     </body>
 </html>
 
