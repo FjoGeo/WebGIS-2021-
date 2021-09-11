@@ -1,0 +1,25 @@
+.download__export {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 200;
+    margin-left: 52px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .download__export:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 60%;
+  }
+  
+  #export-pdf {
+    font-size: 1rem;
+    color: #fff;
+    background: #000;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 2px;
+    margin-top: 10px;
+    margin-left: 90px;
+    margin-bottom: 15px;
+  }

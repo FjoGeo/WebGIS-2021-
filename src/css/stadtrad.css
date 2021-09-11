@@ -1,0 +1,42 @@
+/* Stadtrad */
+
+.formStadtrad {
+    display: none;
+  }
+  
+  .label {
+    display: inline-block;
+    width: 6em;
+  }
+  
+  .top {
+    margin-top: 0.5em;
+  }
+  
+  .left {
+    margin-left: 1em;
+  }
+  
+  .stadtradSpeichern {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 10px;
+    height: 100%;
+    width: 80%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #0c3003;  
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  #stadtrad h1{
+    color: #fff;
+    margin-top: 20px;
+    font-size: 1.5em;
+    border-bottom: 2px solid #034d1f;
+    margin-right: 150px;
+  }

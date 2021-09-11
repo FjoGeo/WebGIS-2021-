@@ -1,0 +1,44 @@
+{
+  "name": "projekt_start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/js/index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "Georg Fjodorow",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/plugin-syntax-top-level-await": "^7.14.5",
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@mapbox/polyline": "^1.1.1",
+    "@turf/along": "^6.5.0",
+    "@turf/turf": "^6.5.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "jspdf": "^2.3.1",
+    "kompas": "^0.0.1",
+    "ol": "^6.5.0",
+    "ol-layerswitcher": "^3.8.3",
+    "openrouteservice-js": "^0.1.23",
+    "path-browserify": "^1.0.1",
+    "proj4": "^2.7.5",
+    "url": "^0.11.0",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^9.0.0",
+    "css-loader": "^5.2.4",
+    "dotenv": "^10.0.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "less": "^4.1.1",
+    "nodemon": "^2.0.12",
+    "sass": "^1.38.2",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.6.0"
+  }
+}

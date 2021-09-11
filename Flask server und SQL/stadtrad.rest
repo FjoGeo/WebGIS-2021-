@@ -1,0 +1,47 @@
+
+GET http://localhost:8082
+
+###
+
+GET http://localhost:8082/get
+
+###
+
+GET http://localhost:8082/get/29
+
+###
+
+POST http://localhost:8082/create
+Content-Type: application/json; charset=utf-8
+Accept: application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8
+
+{
+    "id": 8888883,
+    "station": "Mühlenberger Loch",
+    "longitude": 9.79784652, 
+    "latitude": 53.54849236
+}
+
+###
+
+POST http://localhost:8082/update
+Content-Type: application/json; charset=utf-8
+Accept: application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8
+
+{
+    "id": 8888883,
+    "station": "Mühlenberger Loch / Elbe",
+    "longitude": 9.79784652, 
+    "latitude": 53.54849236
+}
+
+###
+
+POST http://localhost:8082/delete
+Content-Type: application/json; charset=utf-8
+Accept: application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8
+
+{
+    "id": 8888883
+}
+

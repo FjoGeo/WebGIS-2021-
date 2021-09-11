@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Trip Planner</title>
+        <link rel="icon" type="image/x-icon" href="../data/icon/favicon-32x32.png">
+    </head>
+    <body>
+
+        <!-- Navbar ============================================================================================================================== -->
+        <nav class="navbar">
+          <div class="navbar__container">
+            <a href="#sign-up" id="navbar__logo">Trip Planner</a>
+            <ul class="navbar__menu">
+              <li class="navbar__item">
+                <a href="#sign-up" class="navbar__links" id="home-page">Home</a>
+              </li>
+              <li class="navbar__item">
+                <a href="#map" class="navbar__links" id="map-page">Map</a>
+              </li>
+              <li class="navbar__item">
+                <a href="#info" class="navbar__links" id="info-page">Info</a>
+              </li>
+              <li class="navbar__btn">
+                <a href="#"  class="button" id="reg">Log In</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+  
+        <!-- Intro  ============================================================================================================================== -->
+        <div class="intro" id="sign-up">
+          <div class="intro__container">
+  
+            <div class="intro__content">
+              <h1>PLAN DEIN TRIP</h1>
+              <p>Schnell und unkompliziert</p>
+              <button class="intro__btn"><a href="#map">Start</a></button>
+            </div>
+            <div class="intro__img--container">
+              <div class="intro__img--card" id="card">
+                <i class="fas fa-car-side"></i>
+              </div>
+              <div class="intro__img--card" id="card">
+                <i class="fas fa-hiking"></i>
+              </div>
+              <div class="intro__img--card" id="card">
+                <i class="fas fa-bicycle"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map  ============================================================================================================================== -->
+            <div id="main" class="main">
+                <div id="map" class="map"></div>
+            </div>
+
+
+        <!-- PopUp 1  ============================================================================================================================== -->
+
+            <div id="popup" class="ol-popup">
+              <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+              <div id="popup-content"></div>
+              <button type="button" class="btn btn-primary" id="popupOk">Löschen</button>&nbsp;
+              <button type="button" class="btn btn-primary" id="popupCancel">Abbruch</button>
+          </div>
+
+          <!-- PopUp 2  ============================================================================================================================== -->
+          <div class="pop__up">
+            <div class="pop__up__content">
+              <img src="../images/close-button.svg" class="close" id="close">
+              <img src="../images/key.svg" alt="User">
+              <input class="input__pop" id="user_login"  name="user_login" type="text" placeholder="Username">
+              <input class="input__pop" id="user_pw"  name="user_pw" type="password" placeholder="Password">
+              <a href="#" id="button__log" class="button__log">Log in</a>
+            </div>
+          </div>
+
+
+           <!-- Bar  ============================================================================================================================== -->
+           
+            <div class="sidebar" id="side__bar">
+                <a href="javascript:void(0)" onclick="infoCloseAll()"><i class="fa fa-fw fa-home"></i></a>
+                <a href="javascript:void(0)" onclick="info('baselayer')" title="Onlinedienste"><i class="fas fa-globe"></i></a>
+                <a href="javascript:void(0)" onclick="info('verkehr')" title="Features"><i class="fas fa-map-marker-alt"></i></a>
+                <a href="javascript:void(0)" onclick="info('natur')" title="Naturlayer"><i class="fas fa-leaf"></i></a>
+                <a href="javascript:void(0)" onclick="info('informationbar')" title="Koordinaten-Informationen"><i class="fa fa-fw fa-info-circle"></i></a>
+                <a href="javascript:void(0)" onclick="info('stadtrad')" title="Stadtrad"><i class="fas fa-biking"></i></a>
+                <a href="javascript:void(0)" onclick="info('drawing')" title="Zeichnen"><i class="fas fa-drafting-compass"></i></a>
+                <a href="javascript:void(0)" onclick="info('nominatim')" title="Nominatim"><i class="fas fa-search-location"></i></a>
+                <a href="javascript:void(0)" onclick="info('geolocation')" title="Geolocation"><i class="far fa-compass"></i></a>
+                <a href="javascript:void(0)" onclick="info('routing_new')" title="Routing"><i class="fas fa-car"></i></a>
+                <a href="javascript:void(0)" onclick="info('export_map')" title="Export Map"><i class="fas fa-file-export"></i></a>
+                <a href="javascript:void(0)" onclick="info('measurement')" title="Measure"><i class="fas fa-ruler-horizontal"></i></a>
+            </div>
+
+            <div id="baselayer" class="infobar"></div>
+            <div id="verkehr" class="infobar"></div>
+            <div id="america" class="infobar"></div>
+            <div id="natur" class="infobar"></div>
+         
+             <!-- =================== Info - Koordinaten ================================================================================== -->
+            <div id="informationbar" class="infobar">
+              <h1>Koordinaten</h1>
+
+              <div class="container__table">
+                <table class="info">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Copy</th>
+                      <th>Koordinaten</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>WGS 84:</td>
+                      <td></td>
+                      <td id="mouseCoord4326"></td>
+                    </tr>
+                    <tr>
+                      <td>Clicked at:</td>
+                      <td><i class="fas fa-paste" style="color: #A6ACAF;" onclick="copy2clipboard('mouseCoord4326ClickedAt')"></i></td>
+                      <td id="mouseCoord4326ClickedAt"></td>
+                    </tr>
+                    <tr>
+                      <td>Web Mercator:</td>
+                      <td></td>
+                      <td id="mouseCoord3857"></td>
+                    </tr>
+                    <tr>
+                      <td>Clicked at:</td>
+                      <td><i class="fas fa-paste" style="color: #A6ACAF;" onclick="copy2clipboard('mouseCoord3857ClickedAt')"></i></td>
+                      <td id="mouseCoord3857ClickedAt"></td>
+                    </tr>
+                    <tr>
+                      <td>Zoom:</td>
+                      <td><i class="fas fa-paste" style="color: #A6ACAF;" onclick="copy2clipboard('zoom')"></i></td>
+                      <td id="zoom"></td>
+                    </tr>
+                    <tr>
+                      <td>Resolution:</td>
+                      <td><i class="fas fa-paste" style="color: #A6ACAF;" onclick="copy2clipboard('resolution')"></i></td>
+                      <td id="resolution"></td>
+                    </tr>
+                    <tr>
+                      <td>BBOX:</td>
+                      <td><i class="fas fa-paste" style="color: #A6ACAF;" onclick="copy2clipboard('bbox')"></i></td>
+                      <td id="bbox"></td>
+                    </tr>
+                    <tr>
+                      <td>Center:</td>
+                      <td><i class="fas fa-paste" style="color: #A6ACAF;" onclick="copy2clipboard('center')"></i></td>
+                      <td id="center"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- =================== Stadtrad ================================================================================== -->
+            <div id="stadtrad" class="infobar">
+              <h1>Stadtrad</h1>
+              <div class="top left">
+                  <label for="stadtradControlNone">
+                      <input type="radio" id="stadtradControlNone" name="stadtradControl" checked>
+                      Keien Aktion
+                  </label><br>
+                  <label for="stadtradControlDraw">
+                      <input type="radio" id="stadtradControlDraw" name="stadtradControl">
+                      Neue Station erstellen
+                  </label><br>
+                  <label for="stadtradControlModify">
+                      <input type="radio" id="stadtradControlModify" name="stadtradControl">
+                      Station ändern
+                  </label><br>
+                  <label for="stadtradControlDelete">
+                      <input type="radio" id="stadtradControlDelete" name="stadtradControl">
+                      Station löschen
+                  </label>
+              </div>
+              <div>
+                  <form id="formStadtrad" class="formStadtrad">
+                      <div class="top left">
+                          <label for="stadtradStation" class="label">Nummer</label>
+                          <input type="number" id="stadtradStation" name="stadtradStation" placeholder="9999">
+                      </div>
+                      <div class="top left">
+                          <label for="stadtradName" class="label">Name</label>
+                          <input type="text" id="stadtradName" name="stadtradName" placeholder="Musterstraße">
+                      </div>
+                      <div class="top left">
+                          <label for="stadtradLongitude" class="label">Longitude</label>
+                          <input type="text" id="stadtradLongitude" name="stadtradLongitude" placeholder="999.999">
+                      </div>
+                      <div class="top left">
+                          <label for="stadtradLatitude" class="label">Latitude</label>
+                          <input type="text" id="stadtradLatitude" name="stadtradLatitude" placeholder="999.999">
+                      </div>
+                      <div class="top left">
+                          <button type="submit" id="stadtradSpeichern" class="stadtradSpeichern">Speichern</button> <!-- JWT? -->
+                      </div>
+                  </form>
+                  <div id="stadtradMessage" class="top left"></div>
+              </div>
+          </div>
+
+         <!-- ======================================================= Zeichnen ============================================================== -->
+        <div id="drawing" class="infobar">
+          <h1>Zeichnen</h1>
+          
+          <div>
+            <form>
+              <label for="type">Geometrie-Typ: </label>
+              <select id="type">
+                  <option value="Point">Point</option>
+                  <option value="LineString">LineString</option>
+                  <option value="Polygon">Polygon</option>
+              </select>
+            </form>
+            <button id="save" type="button">Speichern</button>
+            <button id="start_drawing" type="button">Zeichnen</button>
+            <button id="stop" type="button">Abbrechen</button>
+            <div id="geom"> </div>
+          </div>
+        </div>
+
+         <!-- ======================================================= Nominatim ==============================================================  -->
+
+        <div id="nominatim" class="infobar">
+          <h1>Adresse suchen</h1>
+          <div>
+              <form id="formNominatim" class="formNominatim">
+                  <div class="top left">
+                      <label for="queryNominatim" class="label"> </label>
+                      <input type="text" id="queryNominatim" name="queryNominatim" placeholder="Adresse">
+                  </div>
+                  <div class="top left">
+                      <button type="submit" id="nominatimSuche" class="btn btn-primary">Suche</button>
+                      <button type="submit" id="delete_search" class="btn btn-primary">Löschen</i></button>
+                  </div>
+              </form>
+          </div>
+          <select id="nominatimPlaces" size="5" class="left nominatimPlaces"></select>
+          <div class="left">
+              <button id="nominatimView" type="button" class="btn btn-primary" title="Fly">Fly</button>
+              <button id="nominatimVieww" type="button" class="btn btn-primary" title="Bounce">Bounce</button>
+              <button id="nominatimViewww" type="button" class="btn btn-primary" title="Elastic">Elastic</button>
+          </div>
+          <div id="nominatimMessage"></div>
+      </div>
+
+       <!-- ======================================================= Geolocation ==============================================================  -->
+
+       <div id="geolocation" class="infobar">
+         <h1>Meine Position</h1>
+
+         <div class="input-title">Click for location:</div>
+          <label for="track" class="checkbox-label">
+              <input id="track" type="checkbox">
+              <span class="checkbox-custom rectangular"></span>
+          </label>
+          
+          <button id="bewegen__nach">Zu meiner Position bewegen</button>
+
+          <div class="pricing-box pricing-box-bg-image text-center">
+            <ul class="features-list">
+              <li> <code id="demo"></code></li>
+              <li> Position accuracy : <code id="accuracy"></code>&nbsp;&nbsp;</li>
+              <li> Altitude : <code id="altitude"></code>&nbsp;&nbsp;</li>
+              <li> Altitude accuracy : <code id="altitudeAccuracy"></code>&nbsp;&nbsp;</li>
+              <li> Heading : <code id="heading"></code>&nbsp;&nbsp;</li>
+              <li> Speed : <code id="speed"></code></li>
+            </ul>
+          </div>
+
+          </div>
+
+        <!-- ======================================================= Routing NEW ==============================================================  -->
+       
+        <div id="routing_new" class="infobar">
+          <h1>Openrouteservice</h1>
+
+          <div id="floating-panel">
+            <b>Fortbewegungsmittel: </b>
+            <select id="mode">
+              <option value="driving-car"> Auto </option>
+              <option value="foot-walking"> Fuß </i> </option>
+              <option value="cycling-regular"> Fahrrad </option>
+            </select>
+          </div>
+
+        <table id="route_table">
+          <tr><td>Longitude:</td><td id="mouseLon"></td></tr>
+          <tr><td>Latitude:</td><td id="mouseLat"></td></tr>
+         </table>
+
+         <select id="waypoints" size="5" class="waypoints"></select>
+         <div>
+          <button id="waypoint-add" type="button" class="btn btn-primary" title="add waypoint"><i class="fa fa-fw fa-plus-square"></i></button>
+          <button id="waypoint-remove" type="button" class="btn btn-primary" title="remove waypoint"><i class="fa fa-fw fa-minus-square"></i></button>
+          <button id="waypoint-up" type="button" class="btn btn-success" title="move waypoint up"><i class="fa fa-fw fa-arrow-circle-up"></i></button>
+          <button id="waypoint-down" type="button" class="btn btn-success" title="move waypoint down"><i class="fa fa-fw fa-arrow-circle-down"></i></button>
+          <button id="route-get" type="button" class="btn btn-danger" title="get route"><i class="fa fa-fw fa-route"></i></button>
+          <button id="route-zoom" type="button" class="btn btn-warning" title="zoom to route"><i class="fa fa-fw fa-search-plus"></i></button>
+          <button id="route-remove" type="button" class="btn btn-info" title="remove route"><i class="fa fa-fw fa-times"></i></button>
+         </div>
+
+      <table class="route-value-table" id="time__table">
+          <tr><td>Distanz: </td><td id="distance"></td></tr>
+          <tr><td>Benötigte Zeit: </td><td id="time"></td></tr>
+      </table>
+      <div id="route-info"></div>
+
+       <!-- ======================================================= Turf Along  ==============================================================  -->
+
+      <h1>Tagesetappen</h1>
+      <button id="along__button">Tagesetappen anzeigen</button>      
+        </div>
+
+       <!-- =======================================================  Map Download  ==============================================================  -->
+     
+       <div id="export_map" class="infobar">
+        <h1>Download PNG/PDF</h1>
+        <div class="download__export">
+          <a id="export-png" class="btn btn-default"><i class="fa fa-download"></i>Download PNG</a>
+          <a id="image-download" download="map.png"></a>
+        </div>
+
+        <form class="form">
+          <label for="format">Größe </label>
+          <select id="format">
+            <option value="a0">A0 (slow)</option>
+            <option value="a1">A1</option>
+            <option value="a2">A2</option>
+            <option value="a3">A3</option>
+            <option value="a4" selected>A4</option>
+            <option value="a5">A5 (fast)</option>
+          </select>
+          <label for="re__so">Auflösung </label>
+          <select id="re__so">
+            <option value="72">72 dpi (fast)</option>
+            <option value="150">150 dpi</option>
+          </select>
+        </form>
+      
+        <button id="export-pdf">Export PDF</button>
+
+       </div>
+
+
+        <!-- =======================================================  Map Download  ==============================================================  -->
+        <div id="measurement" class="infobar">
+          <h1>Messen</h1>
+
+          <form class="form-inline">
+            <label for="type_measure">Measurement type &nbsp;</label>
+            <select id="type_measure">
+              <option value="length">Länge </option>
+              <option value="area">Fläche </option>
+            </select>
+          </form>
+
+          <button id="measure__button">Messen </button>   
+          <button id="measure__stop__button">Stopp</button>   
+
+        </div>
+    </body>
+</html>
+
