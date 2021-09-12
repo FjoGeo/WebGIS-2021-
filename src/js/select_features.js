@@ -4,6 +4,7 @@ import {altKeyOnly, click, pointerMove} from 'ol/events/condition';
 import { map } from './index';
 
 
+
 let select = null; // ref to currently selected interaction
 
 // select interaction working on "singleclick"
@@ -46,14 +47,12 @@ const changeInteraction = function () {
   if (select !== null) {
     map.addInteraction(select);
     select.on('select', function (e) {
+      let values_coo = document.getElementById("mouseCoord4326").value;
       document.getElementById("status").innerHTML =
         '&nbsp;' +
-        e.target.getFeatures().getLength() +
-        ' selected features (last operation selected ' +
-        e.selected.length +
-        ' and deselected ' +
-        e.deselected.length +
-        ' features)';
+        e.target.getFeatures().getLength()  +
+        ' Element ausgewählt \n' + '\n'
+        ;
     });
   }
 };

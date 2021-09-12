@@ -226,3 +226,7 @@ body {
 .info {
   padding-bottom: 20px; 
 }
+
+#rad__rad{
+  display: none;
+}

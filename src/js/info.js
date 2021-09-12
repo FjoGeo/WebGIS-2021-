@@ -14,6 +14,9 @@ function info_click(event) {
     let lat = format(coord4326, "{y}", 8);
     let lon = format(coord4326, "{x}", 8);
     document.getElementById('mouseCoord4326ClickedAt').innerHTML = lon + "," + lat;
+
+    document.getElementById('coord__selected').innerHTML =  '<br>' + 'Longitude: ' + lon + "<br>" +'Latitude: '+ lat;
+
     document.getElementById('mouseCoord3857ClickedAt').innerHTML = format(coord3857, "{x},{y}", 2);
 }
 

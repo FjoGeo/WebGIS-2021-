@@ -19,11 +19,11 @@
               <li class="navbar__item">
                 <a href="#map" class="navbar__links" id="map-page">Map</a>
               </li>
-              <li class="navbar__item">
-                <a href="#info" class="navbar__links" id="info-page">Info</a>
+              <li class="navbar__btn">
+                <a href="#"  class="button" id="reg">Anmelden</a>
               </li>
               <li class="navbar__btn">
-                <a href="#"  class="button" id="reg">Log In</a>
+                <a href="#"  class="button__out" id="out">Abmelden</a>
               </li>
             </ul>
           </div>
@@ -87,7 +87,7 @@
                 <a href="javascript:void(0)" onclick="info('verkehr')" title="Features"><i class="fas fa-map-marker-alt"></i></a>
                 <a href="javascript:void(0)" onclick="info('natur')" title="Naturlayer"><i class="fas fa-leaf"></i></a>
                 <a href="javascript:void(0)" onclick="info('informationbar')" title="Koordinaten-Informationen"><i class="fa fa-fw fa-info-circle"></i></a>
-                <a href="javascript:void(0)" onclick="info('stadtrad')" title="Stadtrad"><i class="fas fa-biking"></i></a>
+                <a href="javascript:void(0)" onclick="info('stadtrad')" id="rad__rad" title="Stadtrad"><i class="fas fa-biking"></i></a>
                 <a href="javascript:void(0)" onclick="info('drawing')" title="Zeichnen"><i class="fas fa-drafting-compass"></i></a>
                 <a href="javascript:void(0)" onclick="info('nominatim')" title="Nominatim"><i class="fas fa-search-location"></i></a>
                 <a href="javascript:void(0)" onclick="info('geolocation')" title="Geolocation"><i class="far fa-compass"></i></a>
@@ -201,7 +201,7 @@
                           <input type="text" id="stadtradLatitude" name="stadtradLatitude" placeholder="999.999">
                       </div>
                       <div class="top left">
-                          <button type="submit" id="stadtradSpeichern" class="stadtradSpeichern">Speichern</button> <!-- JWT? -->
+                          <button type="submit" id="stadtradSpeichern" class="stadtradSpeichern">Speichern</button> 
                       </div>
                   </form>
                   <div id="stadtradMessage" class="top left"></div>
@@ -384,11 +384,14 @@
             <br>
             <br>
             <span id="status">&nbsp;0 ausgewählte Elemente</span>
+            <br>
+            <span id="coord__selected"></span>
           </form>
 
           <button id="f__select__button">Aktivieren </button>   
           <button id="f__select__stop__button">Deaktivieren</button>   
         </div>
+
 
     </body>
 </html>
