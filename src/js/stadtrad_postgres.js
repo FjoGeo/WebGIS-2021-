@@ -24,7 +24,7 @@ let stadtrad_layer_postgres_temp = new VectorLayer({
 	source: stadtrad_source_postgres_temp,
 	style: function(feature, resolution){
         let zoom = parseInt(map.getView().getZoomForResolution(resolution));
-        let scale = 0.0039 * Math.pow(zoom, 1.488);
+        let scale = 0.002 * Math.pow(zoom, 1.488);
         
         return new Style({
             image: new Icon({
@@ -33,7 +33,7 @@ let stadtrad_layer_postgres_temp = new VectorLayer({
                 anchorYUnits: 'fraction',
                 opacity: 0.7,
                 scale: scale,
-                src: '/images/stadtrad_new.svg'
+                src: 'https://cdn2.iconfinder.com/data/icons/flat-web/512/716991-poi-512.png'
             })
         });
 	}
@@ -352,7 +352,7 @@ function deleteStadtrad(f) {
 // ---------------------------------------------------------------
 
 function showPopup(f) {
-    content.innerHTML = "<p><img src='/images/stadtrad.svg' style='height: 2em;'>" +
+    content.innerHTML = "<p><img src='/images/point-of-interest.svg' style='height: 2em;'>" +
                         "<span style='margin-left: 10px;'>Station: " + feature.id_ + "</span></p>" +
                         "<p>" + feature.get("station") + "</p>"
     stadtrad_overlay_postgres.setPosition(f.getGeometry().getCoordinates());

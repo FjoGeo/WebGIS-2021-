@@ -230,3 +230,13 @@ body {
 #rad__rad{
   display: none;
 }
+
+.ol-full-screen-false {
+  position: sticky;
+}
+
+.ol-control button{ 
+  display: none !important;
+  margin-top: 80px !important;
+  background-color: rgba(40, 40, 40, 0.85) !important;
+}

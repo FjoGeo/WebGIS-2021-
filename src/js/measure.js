@@ -3,7 +3,7 @@ import Draw from 'ol/interaction/Draw';
 import Overlay from 'ol/Overlay';
 import {Circle as CircleStyle, Fill, Stroke, Style} from 'ol/style';
 import {LineString, Polygon} from 'ol/geom';
-import {OSM, Vector as VectorSource} from 'ol/source';
+import {Vector as VectorSource} from 'ol/source';
 import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer';
 import {getArea, getLength} from 'ol/sphere';
 import {unByKey} from 'ol/Observable';
@@ -256,6 +256,7 @@ let stopp_zeichen = document.getElementById("measure__stop__button");
 /* Zeichnung und Tooltip stoppen */
 stopp_zeichen.addEventListener("click", () =>{
     map.removeInteraction(draw);
+    map.removeInteraction(addInteraction);
     map.removeInteraction(pointerMoveHandler);
     map.removeEventListener('pointermove', pointerMoveHandler);
 });

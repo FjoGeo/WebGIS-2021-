@@ -81,7 +81,7 @@ const stadtrad_layer_postgres = new VectorLayer({
         let idx = feature.get('id');
         let zoom = parseInt(map.getView().getZoomForResolution(resolution));
         let txt = zoom>=16 ? feature.get('station') : '';
-        let scale = 0.0039 * Math.pow(zoom, 1.488);
+        let scale = 0.002 * Math.pow(zoom, 1.488);
         scale = zoom>=13 ? scale : 0.0;
 
         let styleCache = {};
@@ -92,7 +92,7 @@ const stadtrad_layer_postgres = new VectorLayer({
                 anchorYUnits: 'fraction',
                 opacity: 0.7,
                 scale: scale,
-                src: '/images/stadtrad.svg'
+                src: 'https://cdn2.iconfinder.com/data/icons/flat-web/512/716991-poi-512.png'
             }),
             text: new Text({
                 offsetY: 12,
