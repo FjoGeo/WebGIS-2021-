@@ -88,8 +88,6 @@ File:  <a href="https://github.com/FjoGeo/WebGIS/blob/master/src/js/geolocation.
 - Get your location
 - Move the map to your location
 
-<img src="https://github.com/FjoGeo/WebGIS/blob/master/images/img/geolocation_1.PNG" width="200" height="300"> <img src="https://github.com/FjoGeo/WebGIS/blob/master/images/img/geolocation_2.PNG" width="200" height="300">
-<br>
 <img src="https://github.com/FjoGeo/WebGIS/blob/master/images/img/geolocation_4.PNG" width="800" height="600">
 
 ## 8. Routing and Daily Stages
