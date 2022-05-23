@@ -1,7 +1,7 @@
 # WebGIS - Trip Planner
 
-A WebGIS application made to plan your trip or lookup locations.
-Based on HTML + CSS + JavaScript
+A WebGIS application made to plan your trip or lookup locations. <br>
+Based on HTML + CSS + JavaScript <br>
 Python is used to run the PostgreSQL database and login with JSOON Web Token
 
 <img src="https://github.com/FjoGeo/WebGIS/blob/master/images/img/1.PNG" width="800" height="600">
